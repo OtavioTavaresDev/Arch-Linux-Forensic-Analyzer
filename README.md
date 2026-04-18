@@ -1,3 +1,4 @@
+Aqui está o README atualizado para a versão 4.0 do Vorynex Forensics Suite:
 
 ```markdown
 # 🛡️ Vorynex Forensics Suite v4.0
@@ -7,9 +8,9 @@
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Status](https://img.shields.io/badge/Status-Enterprise%20Ready-brightgreen.svg)]()
 
-**Professional Modular Architecture for Linux Forensic Analysis**
+**Arquitetura modular profissional para análise forense em Linux**
 
-Vorynex Forensics Suite v4.0 represents a significant evolution from previous versions, implementing a complete event pipeline architecture with modular collectors, intelligent analyzers, and real-time behavioral correlation.
+O Vorynex Forensics Suite v4.0 representa uma evolução significativa em relação às versões anteriores, implementando uma arquitetura de pipeline de eventos completa com coletores modulares, analisadores inteligentes e correlação comportamental em tempo real.
 
 ![Vorynex Banner](https://via.placeholder.com/800x450/4F46E5/FFFFFF?text=Vorynex+Forensics+Suite+v4.0)
 
@@ -33,49 +34,49 @@ Vorynex Forensics Suite v4.0 represents a significant evolution from previous ve
 
 ## 🚀 What's New in v4.0
 
-Version 4.0 is a complete architectural rewrite, migrating from a monolithic application to a **modular event processing pipeline**.
+A versão 4.0 é uma reescrita completa da arquitetura, migrando de uma aplicação monolítica para um **pipeline modular de processamento de eventos**.
 
-### Key Evolutions
+### Principais Evoluções
 
-| Component | v2.1 (Previous) | v4.0 (Current) |
-|-----------|-----------------|----------------|
-| **Architecture** | Monolithic class | Decoupled modular pipeline |
-| **Collection** | journalctl, ps, pacman | + auditd, + file hashing, + real change detection |
-| **Processing** | Synchronous | Asynchronous with event queue |
-| **Correlation** | None | Behavioral correlation engine |
-| **Detection** | Simple regex patterns | Analyzers + heuristics + rules |
-| **Persistence** | Memory only | Ready for SQLite/Elasticsearch |
-| **Export** | Simple JSON | JSONL, CSV, SIEM-compatible |
-| **Performance** | Blocking os.walk | Threading, LRU cache, depth limits |
+| Componente | v2.1 (Anterior) | v4.0 (Atual) |
+|------------|-----------------|--------------|
+| **Arquitetura** | Classe monolítica | Pipeline modular desacoplado |
+| **Coleta** | journalctl, ps, pacman | + auditd, + hashing de arquivos, + detecção de mudanças reais |
+| **Processamento** | Síncrono | Assíncrono com fila de eventos |
+| **Correlação** | Inexistente | Motor de correlação comportamental |
+| **Detecção** | Padrões regex simples | Analisadores + heurísticas + regras |
+| **Persistência** | Apenas memória | Preparado para SQLite/Elasticsearch |
+| **Exportação** | JSON simples | JSONL, CSV, compatível SIEM |
+| **Performance** | os.walk bloqueante | Threading, cache LRU, limites de profundidade |
 
-### 🎯 Competitive Differentiators
+### 🎯 Diferenciais Competitivos
 
-1. **Normalized Event Pipeline** - Unified schema like Elastic Common Schema
-2. **Modular Collectors** - Easy extension for new sources (eBPF, auditd, etc.)
-3. **Temporal Correlation** - Detection of suspicious sequences (login → sudo → reverse shell)
-4. **LRU-Cached Hashing** - Real file change detection without recomputation
-5. **Thread-Safe Architecture** - Responsive UI even under heavy load
+1. **Pipeline de Eventos Normalizados** - Esquema unificado tipo Elastic Common Schema
+2. **Coletores Modulares** - Fácil extensão para novas fontes (eBPF, auditd, etc.)
+3. **Correlação Temporal** - Detecção de sequências suspeitas (login → sudo → shell reverso)
+4. **Hashing com Cache LRU** - Detecção real de alterações de arquivos sem recomputação
+5. **Arquitetura Thread-Safe** - UI responsiva mesmo sob carga pesada
 
 ## 🎯 Overview
 
-**Vorynex Forensics Suite** is an endpoint detection and response platform for Linux (EDR-like), designed for:
+**Vorynex Forensics Suite** é uma plataforma de detecção e resposta para endpoints Linux (EDR-like), projetada para:
 
-- **Security Analysts**: Incident investigation and threat hunting
-- **SOC Teams**: Continuous monitoring and real-time alerts
-- **Forensic Investigators**: Evidence collection and timeline reconstruction
-- **DevSecOps**: Integration with security pipelines
+- **Security Analysts**: Investigação de incidentes e threat hunting
+- **SOC Teams**: Monitoramento contínuo e alertas em tempo real
+- **Forensic Investigators**: Coleta de evidências e reconstrução de timeline
+- **DevSecOps**: Integração com pipelines de segurança
 
-### 🎯 Strategic Objectives
+### 🎯 Objetivos Estratégicos
 
-- Provide **kernel-level** visibility (eBPF-ready)
-- Detect anomalous behavior via **event correlation**
-- Generate **forensically valid** evidence with hashing
-- Export data in **SIEM-compatible** formats
-- Serve as foundation for **commercial security products**
+- Prover visibilidade **kernel-level** (preparado para eBPF)
+- Detectar comportamentos anômalos via **correlação de eventos**
+- Gerar evidências **forensicamente válidas** com hashing
+- Exportar dados em formatos **compatíveis com SIEM**
+- Servir como base para **produtos comerciais** de segurança
 
 ## 🏗️ Architecture
 
-### Pipeline Diagram
+### Diagrama de Pipeline
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -83,7 +84,7 @@ Version 4.0 is a complete architectural rewrite, migrating from a monolithic app
 ├─────────────────────────────────────────────────────────────────────────────┤
 │                                                                              │
 │  ┌──────────────────────────────────────────────────────────────────────┐   │
-│  │                           COLLECTORS                                  │   │
+│  │                         COLLECTORS (Coletores)                        │   │
 │  │  ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────┐   │   │
 │  │  │ Journal  │ │  Audit   │ │ Process  │ │FileSystem│ │ Network  │   │   │
 │  │  │Collector │ │Collector │ │Collector │ │Collector │ │Collector │   │   │
@@ -94,13 +95,13 @@ Version 4.0 is a complete architectural rewrite, migrating from a monolithic app
 │                                    │                                          │
 │                                    ▼                                          │
 │                    ┌───────────────────────────────┐                          │
-│                    │         EVENT QUEUE           │                          │
-│                    │        queue.Queue()          │                          │
+│                    │       EVENT QUEUE (Fila)      │                          │
+│                    │      queue.Queue()            │                          │
 │                    └───────────────┬───────────────┘                          │
 │                                    │                                          │
 │                                    ▼                                          │
 │  ┌──────────────────────────────────────────────────────────────────────┐   │
-│  │                         ANALYZERS                                     │   │
+│  │                      ANALYZERS (Enriquecedores)                        │   │
 │  │  ┌─────────────────┐  ┌─────────────────┐  ┌─────────────────┐        │   │
 │  │  │    Command      │  │    Network      │  │     File        │        │   │
 │  │  │   Analyzer      │  │   Analyzer      │  │   Analyzer      │        │   │
@@ -111,15 +112,15 @@ Version 4.0 is a complete architectural rewrite, migrating from a monolithic app
 │                                   │                                            │
 │                                   ▼                                            │
 │                    ┌───────────────────────────────┐                           │
-│                    │         CORRELATOR            │                           │
-│                    │   (Behavioral Correlation)    │                           │
+│                    │        CORRELATOR             │                           │
+│                    │   (Correlação Comportamental) │                           │
 │                    └───────────────┬───────────────┘                           │
 │                                    │                                           │
 │                                    ▼                                           │
 │  ┌──────────────────────────────────────────────────────────────────────┐   │
-│  │                            OUTPUTS                                    │   │
+│  │                          OUTPUTS (Saídas)                             │   │
 │  │  ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────┐   │   │
-│  │  │    UI    │ │  Alerts  │ │  JSONL   │ │   CSV    │ │   SIEM   │   │   │
+│  │  │   UI     │ │  Alerts  │ │  JSONL   │ │   CSV    │ │  SIEM    │   │   │
 │  │  │ (Tkinter)│ │ (Popup)  │ │  Export  │ │  Export  │ │  Export  │   │   │
 │  │  └──────────┘ └──────────┘ └──────────┘ └──────────┘ └──────────┘   │   │
 │  └──────────────────────────────────────────────────────────────────────┘   │
@@ -127,278 +128,278 @@ Version 4.0 is a complete architectural rewrite, migrating from a monolithic app
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
-### Class Structure
+### Estrutura de Classes
 
 ```python
-EventPipeline (Orchestrator)
-├── Event (Normalized data model)
-├── BaseCollector (Abstract class)
+EventPipeline (Orquestrador)
+├── Event (Modelo de dados normalizado)
+├── BaseCollector (Classe abstrata)
 │   ├── JournalCollector (journalctl -f)
 │   ├── AuditCollector (audit.log)
-│   ├── ProcessCollector (process snapshot)
+│   ├── ProcessCollector (snapshot de processos)
 │   ├── FileSystemCollector (scan + hashing)
-│   └── NetworkCollector (active connections)
-├── BaseAnalyzer (Enriches events)
-│   ├── CommandAnalyzer (detects suspicious commands)
-│   └── NetworkAnalyzer (detects malicious connections)
-└── Correlator (Correlates events in time window)
+│   └── NetworkCollector (conexões ativas)
+├── BaseAnalyzer (Enriquece eventos)
+│   ├── CommandAnalyzer (detecta comandos suspeitos)
+│   └── NetworkAnalyzer (detecta conexões maliciosas)
+└── Correlator (Correlaciona eventos em janela temporal)
 ```
 
-### Processing Flow
+### Fluxo de Processamento
 
-1. **Collection**: Collectors run in independent threads
-2. **Normalization**: Raw data → `Event` (unified schema)
-3. **Queuing**: Events enter `queue.Queue`
-4. **Enrichment**: Analyzers add tags and metadata
-5. **Correlation**: Recent events are correlated
-6. **Storage**: Events kept in memory (ready for persistence)
-7. **Notification**: UI updated via callback
+1. **Coleta**: Coletores executam em threads independentes
+2. **Normalização**: Dados brutos → `Event` (schema unificado)
+3. **Enfileiramento**: Eventos entram na `queue.Queue`
+4. **Enriquecimento**: Analisadores adicionam tags e metadados
+5. **Correlação**: Eventos recentes são correlacionados
+6. **Armazenamento**: Eventos mantidos em memória (preparado para persistência)
+7. **Notificação**: UI é atualizada via callback
 
 ## ✨ Features
 
-### 🖥️ Telemetry Collectors
+### 🖥️ Coletores de Telemetria
 
-| Collector | Source | Events Detected | Interval |
-|-----------|--------|-----------------|----------|
-| **JournalCollector** | `journalctl -f` | sudo, logins, services, generic logs | Real-time |
-| **AuditCollector** | `/var/log/audit/audit.log` | syscalls, execve, file access | Real-time |
-| **ProcessCollector** | `ps -eo` | process start/end | 10s |
-| **FileSystemCollector** | `os.walk` + hashing | creation, modification, content change | 30s |
-| **NetworkCollector** | `ss -tunap` | new TCP/UDP connections | 10s |
+| Coletor | Fonte | Eventos Detectados | Intervalo |
+|---------|-------|-------------------|-----------|
+| **JournalCollector** | `journalctl -f` | sudo, logins, serviços, logs genéricos | Tempo real |
+| **AuditCollector** | `/var/log/audit/audit.log` | syscalls, execve, file access | Tempo real |
+| **ProcessCollector** | `ps -eo` | início/término de processos | 10s |
+| **FileSystemCollector** | `os.walk` + hashing | criação, modificação, alteração de conteúdo | 30s |
+| **NetworkCollector** | `ss -tunap` | novas conexões TCP/UDP | 10s |
 
-### 🔍 Security Analyzers
+### 🔍 Analisadores de Segurança
 
 #### CommandAnalyzer
-Detects suspicious command execution:
-- `nc`, `ncat` (reverse shell)
-- `wget`, `curl` (payload download)
-- `bash -i`, `python -c`, `perl -e` (remote execution)
-- `chmod 777`, `chown` (permission changes)
-- `useradd`, `passwd` (user creation)
-- `crontab` (persistence)
+Detecta comandos suspeitos em execuções:
+- `nc`, `ncat` (shell reverso)
+- `wget`, `curl` (download de payloads)
+- `bash -i`, `python -c`, `perl -e` (execução remota)
+- `chmod 777`, `chown` (alteração de permissões)
+- `useradd`, `passwd` (criação de usuários)
+- `crontab` (persistência)
 
 #### NetworkAnalyzer
-Analyzes network connections:
-- Detects connections to suspicious IPs (blacklists)
-- Identifies non-standard ports
-- Correlates with processes
+Analisa conexões de rede:
+- Detecta conexões para IPs suspeitos (listas negras)
+- Identifica portas não-padrão
+- Correlaciona com processos
 
-### 🧠 Behavioral Correlation
+### 🧠 Correlação Comportamental
 
-Example of implemented rule:
+Exemplo de regra implementada:
 
 ```
 SEQUENCE:
-  [login_success] → [sudo] → [process_start command="nc"]
-  WITHIN: 60 seconds
-  ALERT: "Possible Intrusion - Login followed by sudo and reverse shell"
-  LEVEL: CRITICAL
+  [login_success] → [sudo] → [process_start comando="nc"]
+  DENTRO DE: 60 segundos
+  ALERTA: "Possible Intrusion - Login seguido de sudo e shell reverso"
+  NÍVEL: CRITICAL
 ```
 
-### 📊 Graphical Interface
+### 📊 Interface Gráfica
 
-| Tab | Content |
-|-----|---------|
-| **📋 Real-time Events** | Stream of normalized events |
-| **⚠️ Alerts** | Alerts generated by correlation |
-| **🖥 System** | Host info, kernel, uptime, memory |
-| **📁 Files** | Integrity verification with hashing |
+| Aba | Conteúdo |
+|-----|----------|
+| **📋 Eventos em Tempo Real** | Stream de eventos normalizados |
+| **⚠️ Alertas** | Alertas gerados por correlação |
+| **🖥 Sistema** | Informações do host, kernel, uptime, memória |
+| **📁 Arquivos** | Verificação de integridade com hashing |
 
-### 💾 Export Formats
+### 💾 Formatos de Exportação
 
-- **JSONL**: Event streaming (one JSON per line)
-- **CSV**: Compatible with spreadsheets and analysis tools
-- **Ready for**: Elasticsearch, Splunk, Wazuh
+- **JSONL**: Streaming de eventos (um JSON por linha)
+- **CSV**: Compatível com planilhas e ferramentas de análise
+- **Preparado para**: Elasticsearch, Splunk, Wazuh
 
 ## 📦 Requirements
 
-### Operating System
-- Linux (any distribution with systemd)
-- Kernel 4.x or higher
+### Sistema Operacional
+- Linux (qualquer distribuição com systemd)
+- Kernel 4.x ou superior
 - Python 3.8+
 
-### Python Dependencies
+### Dependências Python
 ```bash
-# All are standard libraries - no additional installation required
-- tkinter (graphical interface)
-- threading, queue (concurrency)
-- subprocess, os (system)
+# Todas são bibliotecas padrão - nenhuma instalação adicional necessária
+- tkinter (interface gráfica)
+- threading, queue (concorrência)
+- subprocess, os (sistema)
 - hashlib (hashing)
-- json, csv (export)
+- json, csv (exportação)
 - dataclasses (Python 3.7+)
 - typing (type hints)
 ```
 
-### System Packages
+### Pacotes do Sistema
 ```bash
-# Essential
+# Essenciais
 sudo pacman -S systemd          # journalctl, systemctl
 sudo pacman -S procps-ng        # ps, free
 sudo pacman -S iproute2         # ss
 
-# Optional (for extra functionality)
-sudo pacman -S audit            # auditd (for AuditCollector)
+# Opcionais (para funcionalidades extras)
+sudo pacman -S audit            # auditd (para AuditCollector)
 ```
 
-### Permissions
-- **Root/Sudo**: Required for access to system logs, other users' processes, and detailed network connections
+### Permissões
+- **Root/Sudo**: Necessário para acesso a logs do sistema, processos de outros usuários e conexões de rede detalhadas
 
 ## 🔧 Installation
 
-### Method 1: Direct Download
+### Método 1: Download Direto
 
 ```bash
-# Clone repository
+# Clone o repositório
 git clone https://github.com/OtavioTavaresDev/Arch-Linux-Forensic-Analyzer.git
 cd Arch-Linux-Forensic-Analyzer
 
-# Run
+# Execute
 sudo python3 forenseUltra_4.py
 ```
 
-### Method 2: Quick Install
+### Método 2: Instalação Rápida
 
 ```bash
-# Direct script download
+# Download direto do script
 wget https://raw.githubusercontent.com/OtavioTavaresDev/Arch-Linux-Forensic-Analyzer/main/forenseUltra_4.py
 
-# Make executable and run
+# Tornar executável e rodar
 chmod +x forenseUltra_4.py
 sudo python3 forenseUltra_4.py
 ```
 
-### Method 3: System Installation
+### Método 3: Instalação no Sistema
 
 ```bash
-# Copy to applications directory
+# Copiar para diretório de aplicações
 sudo mkdir -p /opt/vorynex
 sudo cp forenseUltra_4.py /opt/vorynex/
 
-# Create symbolic link
+# Criar link simbólico
 sudo ln -s /opt/vorynex/forenseUltra_4.py /usr/local/bin/vorynex
 
-# Run from anywhere
+# Executar de qualquer lugar
 sudo vorynex
 ```
 
 ## 🎮 Usage
 
-### First Run
+### Primeira Execução
 
 ```bash
 sudo python3 forenseUltra_4.py
 ```
 
-The interface will start automatically with:
-- Active collection pipeline
-- Collectors running in background
-- UI updating in real-time
+A interface iniciará automaticamente com:
+- Pipeline de coleta ativo
+- Coletores executando em background
+- UI atualizando em tempo real
 
-### Controls
+### Controles
 
-| Action | Button/Shortcut | Description |
-|--------|-----------------|-------------|
-| Start Pipeline | ▶ Start | Activates all collectors |
-| Stop Pipeline | ⏹ Stop | Pauses collection |
-| Export JSONL | 💾 Export JSONL | Saves events in JSONL format |
-| Statistics | 📊 Statistics | Shows event/alert count |
-| Clear Display | 🧹 Clear | Clears treeviews |
-| Update System | F5 | Reloads system information |
-| Export | Ctrl+E | Export shortcut |
+| Ação | Botão/Atalho | Descrição |
+|------|-------------|-----------|
+| Iniciar Pipeline | ▶ Iniciar | Ativa todos os coletores |
+| Parar Pipeline | ⏹ Parar | Pausa a coleta |
+| Exportar JSONL | 💾 Exportar JSONL | Salva eventos em formato JSONL |
+| Estatísticas | 📊 Estatísticas | Mostra contagem de eventos/alertas |
+| Limpar Display | 🧹 Limpar | Limpa as treeviews |
+| Atualizar Sistema | F5 | Recarrega informações do sistema |
+| Exportar | Ctrl+E | Atalho para exportação |
 
-### Investigation Workflow
+### Workflow de Investigação
 
 ```text
-1. START
-   └── Run as root
+1. INÍCIO
+   └── Execute como root
    
-2. OBSERVATION (5-10 min)
-   ├── Monitor "Real-time Events" tab
-   ├── Identify suspicious patterns
-   └── Watch "Alerts" tab
+2. OBSERVAÇÃO (5-10 min)
+   ├── Monitore a aba "Eventos em Tempo Real"
+   ├── Identifique padrões suspeitos
+   └── Observe a aba "Alertas"
    
-3. DEEP INVESTIGATION
-   ├── Click alerts for details
-   ├── Check timeline of related events
-   ├── Analyze modified files (Files tab)
-   └── Run integrity verification
+3. INVESTIGAÇÃO PROFUNDA
+   ├── Clique em alertas para ver detalhes
+   ├── Verifique a timeline de eventos relacionados
+   ├── Analise arquivos modificados (aba Arquivos)
+   └── Execute verificação de integridade
    
-4. DOCUMENTATION
-   ├── Export events in JSONL
-   ├── Generate alert report
-   └── Document incident timeline
+4. DOCUMENTAÇÃO
+   ├── Exporte eventos em JSONL
+   ├── Gere relatório de alertas
+   └── Documente timeline do incidente
 ```
 
 ## 📚 Core Components
 
-### Event (Data Model)
+### Event (Modelo de Dados)
 
 ```python
 @dataclass
 class Event:
-    timestamp: datetime      # Event timestamp
+    timestamp: datetime      # Momento do evento
     source: str              # 'journal', 'audit', 'process', 'filesystem', 'network'
     event_type: str          # 'login_success', 'sudo', 'process_start', 'file_created', etc.
-    user: str                # Associated user
-    pid: int                 # PID (if applicable)
-    ppid: int                # PPID (if applicable)
-    command: str             # Executed command
-    args: List[str]          # Arguments
-    file_path: str           # File path
-    file_hash: str           # SHA256 (if calculated)
-    network_src: str         # Source IP/Port
-    network_dst: str         # Destination IP/Port
-    network_port: int        # Remote port
-    raw_data: Dict           # Original raw data
-    enriched: Dict           # Metadata added by analyzers
+    user: str                # Usuário associado
+    pid: int                 # PID (se aplicável)
+    ppid: int                # PPID (se aplicável)
+    command: str             # Comando executado
+    args: List[str]          # Argumentos
+    file_path: str           # Caminho do arquivo
+    file_hash: str           # SHA256 (se calculado)
+    network_src: str         # IP/Porta origem
+    network_dst: str         # IP/Porta destino
+    network_port: int        # Porta remota
+    raw_data: Dict           # Dados brutos originais
+    enriched: Dict           # Metadados adicionados por analisadores
 ```
 
-### FileHasher (LRU Cache)
+### FileHasher (Cache LRU)
 
 ```python
 class FileHasher:
-    """LRU cache for file hashes"""
+    """Cache LRU para hashes de arquivos"""
     
     def hash_file(self, path: str, algo: str = 'sha256') -> Optional[str]:
-        # Check cache based on: path + mtime + size
-        # Return hash from cache if available
-        # Calculate new hash only when necessary
+        # Verifica cache baseado em: path + mtime + size
+        # Retorna hash do cache se disponível
+        # Calcula novo hash apenas se necessário
 ```
 
-### Correlator (Correlation Engine)
+### Correlator (Motor de Correlação)
 
 ```python
 class Correlator:
-    """Sliding window of events for temporal correlation"""
+    """Janela deslizante de eventos para correlação temporal"""
     
     def __init__(self, pipeline):
-        self.recent_events = deque(maxlen=1000)  # 1000 event window
+        self.recent_events = deque(maxlen=1000)  # Janela de 1000 eventos
     
     def correlate(self, event: Event):
-        # Add event to window
-        # Apply correlation rules
-        # Generate alerts when patterns detected
+        # Adiciona evento à janela
+        # Aplica regras de correlação
+        # Gera alertas quando padrões são detectados
 ```
 
 ## 🔬 Detection Capabilities
 
-### Implemented Rules
+### Regras Implementadas
 
-| ID | Name | Description | Severity |
-|----|------|-------------|----------|
-| DET-001 | Command Analyzer | Detects suspicious commands (nc, wget, bash -i) | HIGH |
-| DET-002 | Network Analyzer | Connections to blacklisted IPs | MEDIUM |
-| COR-001 | Login + Sudo + Shell | Compromise sequence | CRITICAL |
+| ID | Nome | Descrição | Severidade |
+|----|------|-----------|------------|
+| DET-001 | Command Analyzer | Detecta comandos suspeitos (nc, wget, bash -i) | HIGH |
+| DET-002 | Network Analyzer | Conexões para IPs em lista negra | MEDIUM |
+| COR-001 | Login + Sudo + Shell | Sequência de comprometimento | CRITICAL |
 
-### Heuristics
+### Heurísticas
 
-- **Processes**: Detection of processes started by recently logged-in users
-- **Files**: Changes to system binaries (`/usr/bin`, `/usr/sbin`)
-- **Network**: Connections to non-standard ports associated with shells
+- **Processos**: Detecção de processos iniciados por usuários recém-logados
+- **Arquivos**: Alterações em binários do sistema (`/usr/bin`, `/usr/sbin`)
+- **Rede**: Conexões para portas não-padrão associadas a shells
 
-### Extensibility
+### Extensibilidade
 
-To add new detection rules:
+Para adicionar novas regras de detecção:
 
 ```python
 class CustomAnalyzer(BaseAnalyzer):
@@ -409,7 +410,7 @@ class CustomAnalyzer(BaseAnalyzer):
                 event.enriched['reason'] = 'New cron job detected'
         return event
 
-# Register in pipeline
+# Registrar no pipeline
 pipeline.analyzers.append(CustomAnalyzer(pipeline))
 ```
 
@@ -432,125 +433,125 @@ timestamp,source,event_type,user,command,file_path,network_dst
 2024-03-20T14:32:10,network,connection_new,,,,1.2.3.4
 ```
 
-### Elasticsearch Integration
+### Integração com Elasticsearch
 
 ```python
-# Ingestion example (not included, but compatible)
+# Exemplo de ingestão (não incluído, mas compatível)
 for event in events:
     es.index(index='vorynex-events', body=event.to_dict())
 ```
 
 ## 🔒 Security
 
-### Privileges
+### Privilégios
 
-- The script **requires root** for full access
-- Automatically detects and offers restart with `sudo`
-- In non-root mode, functionality is limited
+- O script **requer root** para acesso completo
+- Detecta automaticamente e oferece reiniciar com `sudo`
+- Em modo não-root, funcionalidades são limitadas
 
-### Application Security
+### Segurança do Próprio Aplicativo
 
-- No external dependencies (standard libraries only)
-- File hashing with SHA256 for integrity
-- LRU cache prevents DoS via recomputation
+- Sem dependências externas (apenas bibliotecas padrão)
+- Hashing de arquivos com SHA256 para integridade
+- Cache LRU previne DoS por recomputação
 
-### Best Practices
+### Boas Práticas
 
 ```bash
-# Run in controlled environment first
+# Execute em ambiente controlado primeiro
 docker run -it --privileged archlinux /bin/bash
 
-# Keep session logs
+# Mantenha logs da sessão
 script -a vorynex_session.log
 sudo vorynex
 
-# Verify script integrity
+# Verifique integridade do script
 sha256sum forenseUltra_4.py
 ```
 
 ## 🚀 Performance
 
-### Implemented Optimizations
+### Otimizações Implementadas
 
-| Component | Optimization | Impact |
-|-----------|-------------|--------|
-| **FileSystemCollector** | Depth limit (3 levels) | 70% scan reduction |
-| **FileHasher** | LRU cache (1000 entries) | Avoids recomputation |
-| **ProcessCollector** | Differential snapshot | Detects only changes |
-| **Pipeline** | Queue + Threads | UI never blocks |
-| **SystemUtils** | @lru_cache on get_user_name | NSS lookup cache |
+| Componente | Otimização | Impacto |
+|------------|-----------|---------|
+| **FileSystemCollector** | Limite de profundidade (3 níveis) | Reduz scan em 70% |
+| **FileHasher** | Cache LRU (1000 entradas) | Evita recomputação |
+| **ProcessCollector** | Snapshot diferencial | Detecta apenas mudanças |
+| **Pipeline** | Queue + Threads | UI nunca bloqueia |
+| **SystemUtils** | @lru_cache em get_user_name | Cache de lookups NSS |
 
 ### Benchmarks
 
-| Operation | v2.1 | v4.0 | Improvement |
-|-----------|------|------|-------------|
-| Scan /home (1000 files) | 45s | 12s | 73% |
-| Hash 100 binaries | 30s | 2s (cached) | 93% |
-| Event processing/sec | 50 | 500+ | 10x |
+| Operação | v2.1 | v4.0 | Melhoria |
+|----------|------|------|----------|
+| Scan de /home (1000 arquivos) | 45s | 12s | 73% |
+| Hash de 100 binários | 30s | 2s (cached) | 93% |
+| Processamento de eventos/s | 50 | 500+ | 10x |
 
 ## 🛠️ Troubleshooting
 
-### Common Errors
+### Erros Comuns
 
-| Error | Cause | Solution |
-|-------|-------|----------|
-| `Permission denied` | Running without root | `sudo python3 forenseUltra_4.py` |
-| `audit.log not found` | auditd not installed | `sudo pacman -S audit` |
-| `journalctl: command not found` | systemd not installed | Use systemd distribution |
-| Slow interface | Too many files | Adjust `interval` in collectors |
+| Erro | Causa | Solução |
+|------|-------|---------|
+| `Permission denied` | Executando sem root | `sudo python3 forenseUltra_4.py` |
+| `audit.log não encontrado` | auditd não instalado | `sudo pacman -S audit` |
+| `journalctl: command not found` | systemd não instalado | Use distribuição com systemd |
+| Interface lenta | Muitos arquivos | Ajuste `interval` nos coletores |
 
-### Debug Mode
+### Modo Debug
 
 ```bash
-# Enable detailed logging
+# Ativar logging detalhado
 export VORYNEX_DEBUG=1
 sudo -E python3 forenseUltra_4.py
 ```
 
 ## 🤝 Contributing
 
-### Priority Areas for Contribution
+### Áreas Prioritárias para Contribuição
 
-1. **Collectors**
+1. **Coletores**
    - eBPF (execsnoop, opensnoop, tcpconnect)
-   - Falco (detection rules)
-   - Osquery (SQL for system)
+   - Falco (regras de detecção)
+   - Osquery (SQL para sistema)
 
-2. **Analyzers**
-   - YARA (malware rules)
-   - Sigma (SIEM rules)
-   - MITRE ATT&CK (mapping)
+2. **Analisadores**
+   - YARA (regras de malware)
+   - Sigma (regras SIEM)
+   - MITRE ATT&CK (mapeamento)
 
-3. **Exporters**
-   - Elasticsearch (direct ingestion)
+3. **Exportadores**
+   - Elasticsearch (ingestão direta)
    - Kafka (streaming)
-   - Wazuh (integration)
+   - Wazuh (integração)
 
 4. **UI**
    - Web (FastAPI + React)
    - TUI (Textual/Rich)
    - Dashboards (Grafana)
 
-### Contribution Process
+### Processo de Contribuição
 
 ```bash
-# Fork and clone
-git clone https://github.com/your-username/Arch-Linux-Forensic-Analyzer.git
+# Fork e clone
+git clone https://github.com/seu-usuario/Arch-Linux-Forensic-Analyzer.git
 cd Arch-Linux-Forensic-Analyzer
 
-# Create branch
-git checkout -b feature/new-collector
+# Crie branch
+git checkout -b feature/novo-coletor
 
 # Commit (use Conventional Commits)
 git commit -m "feat: add ebpf collector for execve events"
 
-# Push and PR
-git push origin feature/new-collector
+# Push e PR
+git push origin feature/novo-coletor
 ```
 
 ## 📄 License
 
-MIT License - See [LICENSE](LICENSE) file for details.
+MIT License - Veja arquivo [LICENSE](LICENSE) para detalhes.
 
 ---
 
@@ -558,9 +559,9 @@ MIT License - See [LICENSE](LICENSE) file for details.
 
 **Vorynex Forensics Suite v4.0**
 
-*Modular Forensic Analysis Pipeline for Linux*
+*Pipeline Modular de Análise Forense para Linux*
 
-[⭐ Star on GitHub](https://github.com/OtavioTavaresDev/Arch-Linux-Forensic-Analyzer) | [🐛 Report Bug](https://github.com/OtavioTavaresDev/Arch-Linux-Forensic-Analyzer/issues) | [💡 Suggest Feature](https://github.com/OtavioTavaresDev/Arch-Linux-Forensic-Analyzer/issues)
+[⭐ Star no GitHub](https://github.com/OtavioTavaresDev/Arch-Linux-Forensic-Analyzer) | [🐛 Reportar Bug](https://github.com/OtavioTavaresDev/Arch-Linux-Forensic-Analyzer/issues) | [💡 Sugerir Feature](https://github.com/OtavioTavaresDev/Arch-Linux-Forensic-Analyzer/issues)
 
 </div>
 ```
